@@ -16,8 +16,8 @@ set visualbell
 set backupdir=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
 :filetype on
-augroup filetype
-  autocmd BufNewFile,BufRead *.h set filetype=m
-  autocmd BufNewFile,BufRead *.m set filetype=m
-augroup END
-au FileType m exec "source ~/.vim/m.vim"
+"augroup filetype
+  "autocmd BufNewFile,BufRead *.h set filetype=m
+  "autocmd BufNewFile,BufRead *.m set filetype=m
+"augroup END
+au FileType objc exec "source ~/.vim/m.vim"
