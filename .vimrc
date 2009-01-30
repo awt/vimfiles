@@ -21,3 +21,19 @@ set directory=~/.vim-tmp,~/.tmp,~/tmp,/var/tmp,/tmp
   "autocmd BufNewFile,BufRead *.m set filetype=m
 "augroup END
 au FileType objc exec "source ~/.vim/m.vim"
+
+function! Ack(args)
+  let grepprg_bak=&grepprg
+  set grepprg=ack\ -H\ --nocolor\ --nogroup
+  execute "silent! grep " . a:args
+  botright copen
+  let &grepprg=grepprg_bak
+endfunction
+
+command! -nargs=* -complete=file Ack call Ack(<q-args>)
+map <leader>F :Ack<space>
+
+"easy window switching
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+
